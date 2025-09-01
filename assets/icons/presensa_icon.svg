@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background Square with Rounded Corners -->
+  <rect width="512" height="512" rx="100" fill="#2563EB"/>
+  
+  <!-- Clock Circle -->
+  <circle cx="256" cy="256" r="140" fill="white"/>
+  
+  <!-- Clock Hands -->
+  <line x1="256" y1="256" x2="256" y2="180" stroke="#2563EB" stroke-width="20" stroke-linecap="round"/>
+  <line x1="256" y1="256" x2="320" y2="256" stroke="#2563EB" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Checkmark -->
+  <path d="M340 360 L380 400 L440 320" stroke="#10B981" stroke-width="28" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
