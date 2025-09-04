@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 
 enum DBKeys {
@@ -8,6 +9,8 @@ enum DBKeys {
   appwriteTableUsersId("users"),
   appwriteTableCompaniesId("companies"),
   themeMode(ThemeMode.system),
+  isTrueBlack(false),
+  flexScheme(FlexScheme.material),
   credentials(null),
   refreshCredentials(null),
   l10n(Locale('en')),

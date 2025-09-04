@@ -6,11 +6,16 @@
   "theme_mode_dark": "Gelap",
   "theme_mode_light": "Terang",
   "theme_mode_system": "Sistem",
-  "chats": "Pesan",
-  "stories": "Cerita",
-  "settings": "Pengaturan",
+  "dashboard": "Dashboard",
+  "attendance": "Absensi",
+  "employees": "Karyawan",
+  "reports": "Laporan",
+  "more": "Lainnya",
+  "settings": "Settings",
   "profile": "Profil",
+  "company": "Perusahaan",
   "change_password": "Ubah Password",
   "about": "Tentang",
-  "logout": "Keluar"
+  "logout": "Keluar",
+  "is_true_black": "Hitam Pekat"
 }

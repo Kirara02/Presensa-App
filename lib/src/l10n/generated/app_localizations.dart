@@ -134,17 +134,35 @@ abstract class AppLocalizations {
   /// **'System'**
   String get theme_mode_system;
 
-  /// No description provided for @chats.
+  /// No description provided for @dashboard.
   ///
   /// In en, this message translates to:
-  /// **'Chats'**
-  String get chats;
+  /// **'Dashboard'**
+  String get dashboard;
 
-  /// No description provided for @stories.
+  /// No description provided for @attendance.
   ///
   /// In en, this message translates to:
-  /// **'Stories'**
-  String get stories;
+  /// **'Attendance'**
+  String get attendance;
+
+  /// No description provided for @employees.
+  ///
+  /// In en, this message translates to:
+  /// **'Employees'**
+  String get employees;
+
+  /// No description provided for @reports.
+  ///
+  /// In en, this message translates to:
+  /// **'Reports'**
+  String get reports;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
 
   /// No description provided for @settings.
   ///
@@ -157,6 +175,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
+
+  /// No description provided for @company.
+  ///
+  /// In en, this message translates to:
+  /// **'Company'**
+  String get company;
 
   /// No description provided for @change_password.
   ///
@@ -175,6 +199,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
+
+  /// Switch title to enable {} black theme
+  ///
+  /// In en, this message translates to:
+  /// **'True Black'**
+  String get is_true_black;
 }
 
 class _AppLocalizationsDelegate

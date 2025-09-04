@@ -27,16 +27,28 @@ class AppLocalizationsId extends AppLocalizations {
   String get theme_mode_system => 'Sistem';
 
   @override
-  String get chats => 'Pesan';
+  String get dashboard => 'Dashboard';
 
   @override
-  String get stories => 'Cerita';
+  String get attendance => 'Absensi';
 
   @override
-  String get settings => 'Pengaturan';
+  String get employees => 'Karyawan';
+
+  @override
+  String get reports => 'Laporan';
+
+  @override
+  String get more => 'Lainnya';
+
+  @override
+  String get settings => 'Settings';
 
   @override
   String get profile => 'Profil';
+
+  @override
+  String get company => 'Perusahaan';
 
   @override
   String get change_password => 'Ubah Password';
@@ -46,4 +58,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get logout => 'Keluar';
+
+  @override
+  String get is_true_black => 'Hitam Pekat';
 }

@@ -3,10 +3,15 @@ import 'package:presensa_app/src/constants/navigation_bar_data.dart';
 // import 'package:presensa_app/src/features/auth/presentation/widgets/app_logo.dart';
 import 'package:presensa_app/src/utils/extensions/custom_extensions.dart';
 
-class EmployeeBigScreenNavigationBar extends StatelessWidget {
-  const EmployeeBigScreenNavigationBar({super.key, required this.selectedScreen});
+class BigScreenNavigationBar extends StatelessWidget {
+  const BigScreenNavigationBar({
+    super.key,
+    required this.selectedScreen,
+    required this.navList,
+  });
 
   final String selectedScreen;
+  final List<NavigationBarData> navList;
 
   NavigationRailDestination getNavigationRailDestination(
     BuildContext context,
@@ -21,6 +26,10 @@ class EmployeeBigScreenNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (navList.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
     final Widget leadingIcon = SizedBox.shrink();
     if (context.isDesktop) {
       // leadingIcon = AppLogo();
@@ -36,14 +45,17 @@ class EmployeeBigScreenNavigationBar extends StatelessWidget {
           ? NavigationRailLabelType.none
           : NavigationRailLabelType.all,
       leading: leadingIcon,
-      destinations: NavigationBarData.employeeNavList
+      // 3. GUNAKAN navList DARI PARAMETER
+      destinations: navList
           .map<NavigationRailDestination>(
             (e) => getNavigationRailDestination(context, e),
           )
           .toList(),
-      selectedIndex: NavigationBarData.employeeIndexWherePathOrZero(selectedScreen),
-      onDestinationSelected: (value) =>
-          NavigationBarData.employeeNavList[value].go(context),
+      selectedIndex: NavigationBarData.indexWherePathOrZero(
+        selectedScreen,
+        navList,
+      ),
+      onDestinationSelected: (value) => navList[value].go(context),
     );
   }
 }

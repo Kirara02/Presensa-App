@@ -3,21 +3,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:presensa_app/src/core/providers/user_data_provider.dart';
 import 'package:presensa_app/src/features/auth/providers/auth_provider.dart';
 import 'package:presensa_app/src/routes/router_config.dart';
+import 'package:presensa_app/src/utils/extensions/custom_extensions.dart';
 
-class ProfileScreen extends ConsumerWidget {
-  const ProfileScreen({super.key});
+class MoreScreen extends ConsumerWidget {
+  const MoreScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userState = ref.watch(userDataProvider).valueOrNull;
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Profile")),
+      appBar: AppBar(title: Text(context.l10n!.more)),
       body: ListView(
         children: [
           ListTile(
             leading: const Icon(Icons.person),
-            title: const Text("Edit Profile"),
+            title: Text(context.l10n!.profile),
             onTap: () {
               // TODO: navigate to edit profile screen
             },
@@ -26,7 +27,7 @@ class ProfileScreen extends ConsumerWidget {
           if (userState!.isAdmin) // hanya admin
             ListTile(
               leading: const Icon(Icons.business),
-              title: const Text("Edit Company"),
+              title: Text(context.l10n!.company),
               onTap: () {
                 // TODO: navigate to edit company screen
               },
@@ -34,21 +35,28 @@ class ProfileScreen extends ConsumerWidget {
 
           ListTile(
             leading: const Icon(Icons.lock),
-            title: const Text("Change Password"),
+            title: Text(context.l10n!.change_password),
             onTap: () {
               // TODO: navigate to change password screen
             },
           ),
           ListTile(
             leading: const Icon(Icons.settings),
-            title: const Text("Settings"),
+            title: Text(context.l10n!.settings),
+            onTap: () async {
+              SettingsRoute().push(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.info_rounded),
+            title: Text(context.l10n!.about),
             onTap: () async {
               SettingsRoute().push(context);
             },
           ),
           ListTile(
             leading: const Icon(Icons.logout),
-            title: const Text("Logout"),
+            title: Text(context.l10n!.logout),
             onTap: () async {
               await ref.read(authControllerProvider.notifier).logout();
             },

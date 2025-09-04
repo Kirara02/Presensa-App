@@ -1,13 +1,15 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:presensa_app/src/constants/theme.dart';
 import 'package:presensa_app/src/core/providers/global_provider.dart';
 import 'package:presensa_app/src/features/auth/data/services/auth_service.dart';
+import 'package:presensa_app/src/features/settings/presentation/settings/widgets/app_theme_selector/app_theme_selector.dart';
+import 'package:presensa_app/src/features/settings/presentation/settings/widgets/app_theme_theme/app_theme_mode_tile.dart';
+import 'package:presensa_app/src/features/settings/presentation/settings/widgets/is_true_black/is_true_black_tile.dart';
 import 'package:presensa_app/src/l10n/generated/app_localizations.dart';
 import 'package:presensa_app/src/routes/router_config.dart';
 import 'package:presensa_app/src/utils/extensions/custom_extensions.dart';
-import 'package:presensa_app/src/widgets/theme/app_theme_mode_tile.dart';
 
 class PresensaApp extends ConsumerStatefulWidget {
   const PresensaApp({super.key});
@@ -47,6 +49,8 @@ class _PresensaAppState extends ConsumerState<PresensaApp> {
     final routes = ref.watch(routerConfigProvider);
     final appLocale = ref.watch(l10nProvider);
     final appThemeMode = ref.watch(appThemeModeProvider);
+    final appScheme = ref.watch(appSchemeProvider);
+    final isTrueBlack = ref.watch(isTrueBlackProvider);
 
     return MaterialApp.router(
       builder: FToastBuilder(),
@@ -55,8 +59,31 @@ class _PresensaAppState extends ConsumerState<PresensaApp> {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       locale: appLocale,
       supportedLocales: AppLocalizations.supportedLocales,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      theme:
+          FlexThemeData.light(
+            scheme: appScheme,
+            fontFamily: "Poppins",
+            useMaterial3: true,
+            useMaterial3ErrorColors: true,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ).copyWith(
+            tabBarTheme: const TabBarThemeData(
+              tabAlignment: TabAlignment.center,
+            ),
+          ),
+      darkTheme:
+          FlexThemeData.dark(
+            scheme: appScheme,
+            fontFamily: "Poppins",
+            useMaterial3: true,
+            useMaterial3ErrorColors: true,
+            darkIsTrueBlack: isTrueBlack.ifNull(),
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ).copyWith(
+            tabBarTheme: const TabBarThemeData(
+              tabAlignment: TabAlignment.center,
+            ),
+          ),
       themeMode: appThemeMode,
       routerConfig: routes,
     );

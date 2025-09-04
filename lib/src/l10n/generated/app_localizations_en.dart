@@ -27,16 +27,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get theme_mode_system => 'System';
 
   @override
-  String get chats => 'Chats';
+  String get dashboard => 'Dashboard';
 
   @override
-  String get stories => 'Stories';
+  String get attendance => 'Attendance';
+
+  @override
+  String get employees => 'Employees';
+
+  @override
+  String get reports => 'Reports';
+
+  @override
+  String get more => 'More';
 
   @override
   String get settings => 'Settings';
 
   @override
   String get profile => 'Profile';
+
+  @override
+  String get company => 'Company';
 
   @override
   String get change_password => 'Change Password';
@@ -46,4 +58,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Logout';
+
+  @override
+  String get is_true_black => 'True Black';
 }

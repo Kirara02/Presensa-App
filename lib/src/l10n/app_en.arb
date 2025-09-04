@@ -1,16 +1,24 @@
 {
   "@@locale": "en",
+  "@is_true_black": {
+        "description": "Switch title to enable {} black theme"
+  },
   "app_name":"Presensa",
   "app_language" : "App Language",
   "app_theme" : "App Theme Mode",
   "theme_mode_dark": "Dark",
   "theme_mode_light": "Light",
   "theme_mode_system": "System",
-  "chats": "Chats",
-  "stories": "Stories",
+  "dashboard": "Dashboard",
+  "attendance": "Attendance",
+  "employees": "Employees",
+  "reports": "Reports",
+  "more": "More",
   "settings": "Settings",
   "profile": "Profile",
+  "company": "Company",
   "change_password": "Change Password",
   "about": "About",
-  "logout": "Logout"
+  "logout": "Logout",
+  "is_true_black": "True Black"
 }

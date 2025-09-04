@@ -2,27 +2,27 @@
 
 // ignore_for_file: always_specify_types, public_member_api_docs
 
-part of 'auth_provider.dart';
+part of 'is_true_black_tile.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authControllerHash() => r'43767c79893bab886001cb67e5631374196f38ea';
+String _$isTrueBlackHash() => r'7d06357ad040ecc24d9729c2b3fa4419bd573487';
 
-/// See also [AuthController].
-@ProviderFor(AuthController)
-final authControllerProvider =
-    AutoDisposeAsyncNotifierProvider<AuthController, void>.internal(
-      AuthController.new,
-      name: r'authControllerProvider',
+/// See also [IsTrueBlack].
+@ProviderFor(IsTrueBlack)
+final isTrueBlackProvider =
+    AutoDisposeNotifierProvider<IsTrueBlack, bool?>.internal(
+      IsTrueBlack.new,
+      name: r'isTrueBlackProvider',
       debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
           ? null
-          : _$authControllerHash,
+          : _$isTrueBlackHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
 
-typedef _$AuthController = AutoDisposeAsyncNotifier<void>;
+typedef _$IsTrueBlack = AutoDisposeNotifier<bool?>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
