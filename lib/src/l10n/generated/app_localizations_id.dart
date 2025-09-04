@@ -61,4 +61,27 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get is_true_black => 'Hitam Pekat';
+
+  @override
+  String get client => 'Client';
+
+  @override
+  String get client_version => 'Versi Client';
+
+  @override
+  String copy_msg(Object msg) {
+    return '\'$msg\' Tersalin!';
+  }
+
+  @override
+  String get check_for_updates => 'Periksa pembaruan';
+
+  @override
+  String get check_app_store => 'Silakan cek di App Store secara manual';
+
+  @override
+  String get no_updates_available => 'Anda menggunakan versi terbaru';
+
+  @override
+  String get update_failed => 'Gagal memperbarui';
 }

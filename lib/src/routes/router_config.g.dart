@@ -13,7 +13,6 @@ List<RouteBase> get $appRoutes => [
   $loginRoute,
   $registerRoute,
   $shellRoute,
-  $settingsRoute,
 ];
 
 RouteBase get $splashRoute =>
@@ -85,27 +84,82 @@ mixin _$RegisterRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $shellRoute => ShellRouteData.$route(
-  navigatorKey: ShellRoute.$navigatorKey,
+RouteBase get $shellRoute => StatefulShellRouteData.$route(
   factory: $ShellRouteExtension._fromState,
-  routes: [
-    GoRouteData.$route(
-      path: '/dashboard',
+  branches: [
+    StatefulShellBranchData.$branch(
+      initialLocation: DashboardBranch.$initialLocation,
 
-      factory: _$DashboardRoute._fromState,
-    ),
-    GoRouteData.$route(
-      path: '/attendance',
+      routes: [
+        GoRouteData.$route(
+          path: '/dashboard',
 
-      factory: _$AttendanceRoute._fromState,
+          factory: _$DashboardRoute._fromState,
+        ),
+      ],
     ),
-    GoRouteData.$route(
-      path: '/employees',
+    StatefulShellBranchData.$branch(
+      initialLocation: AttendanceBranch.$initialLocation,
 
-      factory: _$EmployeesRoute._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: '/attendance',
+
+          factory: _$AttendanceRoute._fromState,
+        ),
+      ],
     ),
-    GoRouteData.$route(path: '/reports', factory: _$ReportsRoute._fromState),
-    GoRouteData.$route(path: '/more', factory: _$MoreRoute._fromState),
+    StatefulShellBranchData.$branch(
+      initialLocation: EmployeesBranch.$initialLocation,
+
+      routes: [
+        GoRouteData.$route(
+          path: '/employees',
+
+          factory: _$EmployeesRoute._fromState,
+        ),
+      ],
+    ),
+    StatefulShellBranchData.$branch(
+      initialLocation: ReportsBranch.$initialLocation,
+
+      routes: [
+        GoRouteData.$route(
+          path: '/reports',
+
+          factory: _$ReportsRoute._fromState,
+        ),
+      ],
+    ),
+    StatefulShellBranchData.$branch(
+      initialLocation: MoreBranch.$initialLocation,
+
+      routes: [
+        GoRouteData.$route(
+          path: '/more',
+
+          factory: _$MoreRoute._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'settings',
+
+              factory: _$SettingsRoute._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'profile',
+
+              factory: _$ProfileRoute._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'company',
+
+              factory: _$CompanyRoute._fromState,
+            ),
+            GoRouteData.$route(path: 'about', factory: _$AboutRoute._fromState),
+          ],
+        ),
+      ],
+    ),
   ],
 );
 
@@ -216,14 +270,71 @@ mixin _$MoreRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $settingsRoute =>
-    GoRouteData.$route(path: '/settings', factory: _$SettingsRoute._fromState);
-
 mixin _$SettingsRoute on GoRouteData {
   static SettingsRoute _fromState(GoRouterState state) => const SettingsRoute();
 
   @override
-  String get location => GoRouteData.$location('/settings');
+  String get location => GoRouteData.$location('/more/settings');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$ProfileRoute on GoRouteData {
+  static ProfileRoute _fromState(GoRouterState state) => const ProfileRoute();
+
+  @override
+  String get location => GoRouteData.$location('/more/profile');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$CompanyRoute on GoRouteData {
+  static CompanyRoute _fromState(GoRouterState state) => const CompanyRoute();
+
+  @override
+  String get location => GoRouteData.$location('/more/company');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$AboutRoute on GoRouteData {
+  static AboutRoute _fromState(GoRouterState state) => const AboutRoute();
+
+  @override
+  String get location => GoRouteData.$location('/more/about');
 
   @override
   void go(BuildContext context) => context.go(location);

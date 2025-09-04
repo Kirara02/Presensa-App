@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:presensa_app/src/constants/colors.dart';
-import 'package:presensa_app/src/features/settings/presentation/settings/widgets/app_theme_theme/app_theme_mode_tile.dart';
+import 'package:presensa_app/src/features/more/presentation/settings/widgets/app_theme_theme/app_theme_mode_tile.dart';
 
 class NavigationIcon extends ConsumerWidget {
   final String iconPath;

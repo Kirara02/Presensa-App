@@ -55,44 +55,97 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     });
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Login")),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Center(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Email
-                TextFormField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(labelText: "Email"),
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (val) => val != null && val.contains("@")
-                      ? null
-                      : "Email tidak valid",
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Selamat Datang 👋",
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
-                const SizedBox(height: 16),
-                // Password
-                TextFormField(
-                  controller: _passwordController,
-                  decoration: const InputDecoration(labelText: "Password"),
-                  obscureText: true,
-                  validator: (val) => val != null && val.length >= 8
-                      ? null
-                      : "Minimal 8 karakter",
+              ),
+              const SizedBox(height: 8),
+              Text(
+                "Silakan login untuk melanjutkan",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 32),
+              Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
                 ),
-                const SizedBox(height: 24),
-                // Login button
-                authState.isLoading
-                    ? const CircularProgressIndicator()
-                    : ElevatedButton(
-                        onPressed: _handleLogin,
-                        child: const Text("Login"),
-                      ),
-              ],
-            ),
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        // Email
+                        TextFormField(
+                          controller: _emailController,
+                          decoration: const InputDecoration(
+                            labelText: "Email",
+                            prefixIcon: Icon(Icons.email_outlined),
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (val) => val != null && val.contains("@")
+                              ? null
+                              : "Email tidak valid",
+                        ),
+                        const SizedBox(height: 16),
+                        // Password
+                        TextFormField(
+                          controller: _passwordController,
+                          decoration: const InputDecoration(
+                            labelText: "Password",
+                            prefixIcon: Icon(Icons.lock_outline),
+                          ),
+                          obscureText: true,
+                          validator: (val) => val != null && val.length >= 8
+                              ? null
+                              : "Minimal 8 karakter",
+                        ),
+                        const SizedBox(height: 24),
+                        // Login button
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: authState.isLoading
+                                ? null
+                                : _handleLogin,
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: authState.isLoading
+                                ? const SizedBox(
+                                    height: 20,
+                                    width: 20,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                    ),
+                                  )
+                                : const Text(
+                                    "Login",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

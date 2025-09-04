@@ -43,6 +43,23 @@ final appDirectoryProvider = AutoDisposeProvider<Directory?>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef AppDirectoryRef = AutoDisposeProviderRef<Directory?>;
+String _$packageInfoHash() => r'1758b03ad90499bfb24a03dcff6e93eae9681c5f';
+
+/// See also [packageInfo].
+@ProviderFor(packageInfo)
+final packageInfoProvider = AutoDisposeProvider<PackageInfo>.internal(
+  packageInfo,
+  name: r'packageInfoProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$packageInfoHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef PackageInfoRef = AutoDisposeProviderRef<PackageInfo>;
 String _$l10nHash() => r'c76dfb2d05d2abccdf86e36fe6b9e4f50ba4e49f';
 
 /// See also [L10n].

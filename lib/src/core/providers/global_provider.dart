@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:presensa_app/src/constants/db_keys.dart';
 import 'package:presensa_app/src/core/mixin/shared_preferences_client_mixin.dart';
 import 'package:presensa_app/src/utils/extensions/custom_extensions.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -65,3 +66,7 @@ SharedPreferences sharedPreferences(Ref ref) => throw UnimplementedError();
 
 @riverpod
 Directory? appDirectory(Ref ref) => throw UnimplementedError();
+
+
+@riverpod
+PackageInfo packageInfo(Ref ref) => throw UnimplementedError();

@@ -1,60 +1,45 @@
 part of '../router_config.dart';
 
-@TypedShellRoute<ShellRoute>(
-  routes: [
-    TypedGoRoute<DashboardRoute>(path: Routes.dashboard),
-    TypedGoRoute<AttendanceRoute>(path: Routes.attendance),
-    TypedGoRoute<EmployeesRoute>(path: Routes.employees),
-    TypedGoRoute<ReportsRoute>(path: Routes.reports),
-    TypedGoRoute<MoreRoute>(path: Routes.more),
+@TypedStatefulShellRoute<ShellRoute>(
+  branches: [
+    TypedStatefulShellBranch<DashboardBranch>(
+      routes: [TypedGoRoute<DashboardRoute>(path: Routes.dashboard)],
+    ),
+    TypedStatefulShellBranch<AttendanceBranch>(
+      routes: [TypedGoRoute<AttendanceRoute>(path: Routes.attendance)],
+    ),
+    TypedStatefulShellBranch<EmployeesBranch>(
+      routes: [TypedGoRoute<EmployeesRoute>(path: Routes.employees)],
+    ),
+    TypedStatefulShellBranch<ReportsBranch>(
+      routes: [TypedGoRoute<ReportsRoute>(path: Routes.reports)],
+    ),
+    TypedStatefulShellBranch<MoreBranch>(
+      routes: [
+        TypedGoRoute<MoreRoute>(
+          path: Routes.more,
+          routes: [
+            TypedGoRoute<SettingsRoute>(path: Routes.settings),
+            TypedGoRoute<ProfileRoute>(path: Routes.profile),
+            TypedGoRoute<CompanyRoute>(path: Routes.company),
+            TypedGoRoute<AboutRoute>(path: Routes.about),
+          ],
+        ),
+      ],
+    ),
   ],
 )
-class ShellRoute extends ShellRouteData {
+class ShellRoute extends StatefulShellRouteData {
   const ShellRoute();
 
   static final GlobalKey<NavigatorState> $navigatorKey = _shellNavigatorKey;
 
   @override
-  Widget builder(BuildContext context, GoRouterState state, Widget navigator) {
-    return ShellScreen(child: navigator);
+  Widget builder(
+    BuildContext context,
+    GoRouterState state,
+    Widget navigationShell,
+  ) {
+    return ShellScreen(child: navigationShell);
   }
-}
-
-class DashboardRoute extends GoRouteData with _$DashboardRoute {
-  const DashboardRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const DashboardScreen();
-}
-
-class AttendanceRoute extends GoRouteData with _$AttendanceRoute {
-  const AttendanceRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const AttendanceScreen();
-}
-
-class EmployeesRoute extends GoRouteData with _$EmployeesRoute {
-  const EmployeesRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const EmployeesScreen();
-}
-
-class ReportsRoute extends GoRouteData with _$ReportsRoute {
-  const ReportsRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const ReportsScreen();
-}
-
-class MoreRoute extends GoRouteData with _$MoreRoute {
-  const MoreRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) => const MoreScreen();
 }

@@ -61,4 +61,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get is_true_black => 'True Black';
+
+  @override
+  String get client => 'Client';
+
+  @override
+  String get client_version => 'Client version';
+
+  @override
+  String copy_msg(Object msg) {
+    return '\'$msg\' Copied!';
+  }
+
+  @override
+  String get check_for_updates => 'Check for updates';
+
+  @override
+  String get check_app_store => 'Please check the App Store manually';
+
+  @override
+  String get no_updates_available => 'You\'re using the latest version\"';
+
+  @override
+  String get update_failed => 'Update failed';
 }

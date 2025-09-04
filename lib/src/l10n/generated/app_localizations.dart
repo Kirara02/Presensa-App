@@ -205,6 +205,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'True Black'**
   String get is_true_black;
+
+  /// No description provided for @client.
+  ///
+  /// In en, this message translates to:
+  /// **'Client'**
+  String get client;
+
+  /// No description provided for @client_version.
+  ///
+  /// In en, this message translates to:
+  /// **'Client version'**
+  String get client_version;
+
+  /// No description provided for @copy_msg.
+  ///
+  /// In en, this message translates to:
+  /// **'\'{msg}\' Copied!'**
+  String copy_msg(Object msg);
+
+  /// No description provided for @check_for_updates.
+  ///
+  /// In en, this message translates to:
+  /// **'Check for updates'**
+  String get check_for_updates;
+
+  /// No description provided for @check_app_store.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check the App Store manually'**
+  String get check_app_store;
+
+  /// No description provided for @no_updates_available.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re using the latest version\"'**
+  String get no_updates_available;
+
+  /// No description provided for @update_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Update failed'**
+  String get update_failed;
 }
 
 class _AppLocalizationsDelegate

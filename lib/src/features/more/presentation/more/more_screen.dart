@@ -20,7 +20,7 @@ class MoreScreen extends ConsumerWidget {
             leading: const Icon(Icons.person),
             title: Text(context.l10n!.profile),
             onTap: () {
-              // TODO: navigate to edit profile screen
+              ProfileRoute().push(context);
             },
           ),
 
@@ -29,7 +29,7 @@ class MoreScreen extends ConsumerWidget {
               leading: const Icon(Icons.business),
               title: Text(context.l10n!.company),
               onTap: () {
-                // TODO: navigate to edit company screen
+                CompanyRoute().push(context);
               },
             ),
 
@@ -51,7 +51,7 @@ class MoreScreen extends ConsumerWidget {
             leading: const Icon(Icons.info_rounded),
             title: Text(context.l10n!.about),
             onTap: () async {
-              SettingsRoute().push(context);
+              AboutRoute().push(context);
             },
           ),
           ListTile(
