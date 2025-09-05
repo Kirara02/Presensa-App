@@ -48,9 +48,9 @@ def main():
     # 2. Buat Admin User di Authentication
     admin = users.create(
         user_id=ID.unique(),
-        email="admin2@mail.com",
+        email="superadmin@mail.com",
         password="satudua12",
-        name="Kirara Bernstein Admin"
+        name="Owner Company"
     )
     print(f"✅ Admin user created: {admin['$id']}")
     users.update_email_verification(
