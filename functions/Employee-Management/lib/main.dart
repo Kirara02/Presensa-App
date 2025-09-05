@@ -161,7 +161,6 @@ Future<dynamic> main(final context) async {
           email: payload['email'],
           password: payload['password'],
           name: payload['name'],
-          
         );
 
         await users.updateEmailVerification(

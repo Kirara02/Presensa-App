@@ -27,5 +27,8 @@
   "check_for_updates": "Check for updates",
   "check_app_store": "Please check the App Store manually",
   "no_updates_available": "You're using the latest version\"",
-  "update_failed": "Update failed"
+  "update_failed": "Update failed",
+  "role": "Role",
+  "role_employee": "Employee",
+  "role_admin": "Admin"
 }

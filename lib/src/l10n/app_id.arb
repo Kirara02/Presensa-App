@@ -24,5 +24,8 @@
   "check_for_updates": "Periksa pembaruan",
   "check_app_store": "Silakan cek di App Store secara manual",
   "no_updates_available": "Anda menggunakan versi terbaru",
-  "update_failed": "Gagal memperbarui"
+  "update_failed": "Gagal memperbarui",
+  "role": "Peran",
+  "role_employee": "Karyawan",
+  "role_admin": "Admin"
 }

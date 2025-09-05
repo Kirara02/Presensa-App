@@ -1,4 +1,3 @@
-import 'package:presensa_app/src/core/logger/logger.dart';
 import 'package:presensa_app/src/features/employees/data/models/company.dart';
 
 class Employee {
@@ -22,9 +21,7 @@ class Employee {
     this.company,
   });
 
-  // Factory constructor untuk membuat Employee dari JSON (data Appwrite)
   factory Employee.fromJson(Map<String, dynamic> json) {
-    logger.i(json);
     return Employee(
       userId: json['userId'],
       documentId: json['documentId'],

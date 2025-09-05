@@ -247,6 +247,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update failed'**
   String get update_failed;
+
+  /// No description provided for @role.
+  ///
+  /// In en, this message translates to:
+  /// **'Role'**
+  String get role;
+
+  /// No description provided for @role_employee.
+  ///
+  /// In en, this message translates to:
+  /// **'Employee'**
+  String get role_employee;
+
+  /// No description provided for @role_admin.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin'**
+  String get role_admin;
 }
 
 class _AppLocalizationsDelegate

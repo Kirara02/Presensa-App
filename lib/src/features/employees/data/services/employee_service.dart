@@ -144,7 +144,7 @@ class EmployeeService implements EmployeeRepository {
         functionId: employeeFunctionId,
         body: jsonEncode({
           'action': 'update',
-          'employeeData': employee.toJson(), // Kirim seluruh objek employee
+          'employeeData': employee.toJson(),
         }),
       );
 
@@ -152,9 +152,6 @@ class EmployeeService implements EmployeeRepository {
         result.responseBody,
       );
       if (decodedResponse['success'] == true) {
-        // Setelah update berhasil, kembalikan objek employee yang diperbarui.
-        // Untuk simpelnya, kita bisa kembalikan objek yang sama, atau idealnya
-        // fungsi bisa mengembalikan data yang telah diupdate.
         return employee;
       } else {
         throw Exception('Error dari server: ${decodedResponse['error']}');

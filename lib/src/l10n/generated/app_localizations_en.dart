@@ -84,4 +84,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get update_failed => 'Update failed';
+
+  @override
+  String get role => 'Role';
+
+  @override
+  String get role_employee => 'Employee';
+
+  @override
+  String get role_admin => 'Admin';
 }

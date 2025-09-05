@@ -17,6 +17,8 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _departmentController = TextEditingController();
+  final _phoneController = TextEditingController();
 
   String _selectedRole = 'employee';
   bool _isLoading = false;
@@ -26,6 +28,8 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
     _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _departmentController.dispose();
+    _phoneController.dispose();
     super.dispose();
   }
 
@@ -48,11 +52,17 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
       await ref
           .read(employeeListProvider.notifier)
           .addEmployee(
-            name: _nameController.text,
-            email: _emailController.text,
-            password: _passwordController.text,
+            name: _nameController.text.trim(),
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim(),
             role: _selectedRole,
             companyId: companyId,
+            department: _departmentController.text.isNotEmpty
+                ? _departmentController.text.trim()
+                : null,
+            phone: _phoneController.text.isNotEmpty
+                ? _phoneController.text.trim()
+                : null,
           );
 
       if (mounted) {
@@ -127,13 +137,16 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
               if (currentUser?.role == 'super-admin') ...[
                 DropdownButtonFormField<String>(
                   initialValue: _selectedRole,
-                  decoration: const InputDecoration(labelText: 'Peran (Role)'),
-                  items: const [
+                  decoration: InputDecoration(labelText: context.l10n!.role),
+                  items: [
                     DropdownMenuItem(
                       value: 'employee',
-                      child: Text('Karyawan (Employee)'),
+                      child: Text(context.l10n!.role_employee),
                     ),
-                    DropdownMenuItem(value: 'admin', child: Text('Admin')),
+                    DropdownMenuItem(
+                      value: 'admin',
+                      child: Text(context.l10n!.role_admin),
+                    ),
                   ],
                   onChanged: (String? newValue) {
                     if (newValue != null) {
@@ -144,6 +157,16 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
                   },
                   validator: (value) =>
                       value == null ? 'Peran harus dipilih' : null,
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _departmentController,
+                  decoration: const InputDecoration(labelText: 'Departement'),
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _phoneController,
+                  decoration: const InputDecoration(labelText: 'Phone'),
                 ),
                 const SizedBox(height: 16),
               ],

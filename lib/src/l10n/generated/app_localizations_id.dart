@@ -84,4 +84,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get update_failed => 'Gagal memperbarui';
+
+  @override
+  String get role => 'Peran';
+
+  @override
+  String get role_employee => 'Karyawan';
+
+  @override
+  String get role_admin => 'Admin';
 }
