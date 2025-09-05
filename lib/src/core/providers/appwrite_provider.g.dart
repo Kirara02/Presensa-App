@@ -44,9 +44,7 @@ final appwriteAccountProvider = AutoDisposeProvider<Account>.internal(
 typedef AppwriteAccountRef = AutoDisposeProviderRef<Account>;
 String _$appwriteTablesDBHash() => r'b83b810935302feecf022f5816f1eef937ed0175';
 
-/// ✅ Provider untuk TablesDB
-///
-/// Copied from [appwriteTablesDB].
+/// See also [appwriteTablesDB].
 @ProviderFor(appwriteTablesDB)
 final appwriteTablesDBProvider = AutoDisposeProvider<TablesDB>.internal(
   appwriteTablesDB,
@@ -61,5 +59,22 @@ final appwriteTablesDBProvider = AutoDisposeProvider<TablesDB>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef AppwriteTablesDBRef = AutoDisposeProviderRef<TablesDB>;
+String _$appwriteFunctionsHash() => r'092cfb103b6c96f52da562909c80c2ee8569375a';
+
+/// See also [appwriteFunctions].
+@ProviderFor(appwriteFunctions)
+final appwriteFunctionsProvider = AutoDisposeProvider<Functions>.internal(
+  appwriteFunctions,
+  name: r'appwriteFunctionsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$appwriteFunctionsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef AppwriteFunctionsRef = AutoDisposeProviderRef<Functions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

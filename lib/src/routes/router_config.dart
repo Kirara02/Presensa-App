@@ -6,6 +6,8 @@ import 'package:presensa_app/src/features/auth/presentation/login/login_screen.d
 import 'package:presensa_app/src/features/auth/presentation/register/register_screen.dart';
 import 'package:presensa_app/src/features/auth/presentation/splash/splash_screen.dart';
 import 'package:presensa_app/src/features/dashboard/presentation/dashboard/dashboard_screen.dart';
+import 'package:presensa_app/src/features/employees/presentation/add_employee/add_employee_screen.dart';
+import 'package:presensa_app/src/features/employees/presentation/employee_detail/employee_detail_screen.dart';
 import 'package:presensa_app/src/features/employees/presentation/employees/employees_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/about/about_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/company/company_screen.dart';

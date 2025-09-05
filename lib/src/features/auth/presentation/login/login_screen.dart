@@ -39,7 +39,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
     ref.listen(userDataProvider, (prev, next) {
       if (next is AsyncData && next.value != null) {
-        if (next.value!.isAdmin) {
+        if (next.value!.isSuperAdmin || next.value!.isAdmin) {
           DashboardRoute().go(context);
         } else {
           AttendanceRoute().go(context);

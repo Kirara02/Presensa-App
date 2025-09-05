@@ -59,6 +59,8 @@ class NavigationBarData {
 
   static List<NavigationBarData> getNavListForRole(String? role) {
     switch (role?.toLowerCase()) {
+      case 'super-admin':
+        return _adminNavList;
       case 'admin':
         return _adminNavList;
       case 'employee':

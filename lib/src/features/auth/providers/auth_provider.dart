@@ -23,16 +23,6 @@ class AuthController extends _$AuthController {
     });
   }
 
-  /// register lalu set UserData
-  Future<void> register(String email, String password, String name) async {
-    state = const AsyncLoading();
-    final repo = ref.read(authRepositoryProvider);
-
-    state = await AsyncValue.guard(() async {
-      await repo.register(email, password, name);
-    });
-  }
-
   /// logout dan clear UserData
   Future<void> logout() async {
     state = const AsyncLoading();

@@ -9,7 +9,15 @@ part of '../router_config.dart';
       routes: [TypedGoRoute<AttendanceRoute>(path: Routes.attendance)],
     ),
     TypedStatefulShellBranch<EmployeesBranch>(
-      routes: [TypedGoRoute<EmployeesRoute>(path: Routes.employees)],
+      routes: [
+        TypedGoRoute<EmployeesRoute>(
+          path: Routes.employees,
+          routes: [
+            TypedGoRoute<AddEmployeeRoute>(path: 'add'),
+            TypedGoRoute<EmployeeDetailRoute>(path: ':id'),
+          ],
+        ),
+      ],
     ),
     TypedStatefulShellBranch<ReportsBranch>(
       routes: [TypedGoRoute<ReportsRoute>(path: Routes.reports)],

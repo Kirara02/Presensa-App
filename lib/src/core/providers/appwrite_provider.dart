@@ -1,7 +1,7 @@
+import 'package:appwrite/appwrite.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:presensa_app/src/constants/db_keys.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:appwrite/appwrite.dart';
 
 part 'appwrite_provider.g.dart';
 
@@ -14,10 +14,7 @@ Client appwriteClient(Ref ref) {
     throw Exception('Appwrite configuration is missing.');
   }
 
-  return Client()
-      .setEndpoint(endpoint) // Your Appwrite Endpoint
-      .setProject(projectId) // Your project ID
-      .setSelfSigned(); // Use only on dev mode with a self-signed certificate
+  return Client().setEndpoint(endpoint).setProject(projectId).setSelfSigned();
 }
 
 @riverpod
@@ -26,9 +23,14 @@ Account appwriteAccount(Ref ref) {
   return Account(client);
 }
 
-/// ✅ Provider untuk TablesDB
 @riverpod
 TablesDB appwriteTablesDB(Ref ref) {
   final client = ref.watch(appwriteClientProvider);
   return TablesDB(client);
+}
+
+@riverpod
+Functions appwriteFunctions(Ref ref) {
+  final client = ref.watch(appwriteClientProvider);
+  return Functions(client);
 }

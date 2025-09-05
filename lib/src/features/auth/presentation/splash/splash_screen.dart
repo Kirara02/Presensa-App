@@ -13,7 +13,7 @@ class SplashScreen extends ConsumerWidget {
 
       if (next is AsyncData) {
         if (next.value != null) {
-          if (next.value!.isAdmin) {
+          if (next.value!.isAdmin || next.value!.isSuperAdmin) {
             DashboardRoute().go(context);
           } else {
             AttendanceRoute().go(context);

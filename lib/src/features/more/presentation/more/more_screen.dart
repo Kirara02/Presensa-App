@@ -24,7 +24,7 @@ class MoreScreen extends ConsumerWidget {
             },
           ),
 
-          if (userState!.isAdmin) // hanya admin
+          if (userState!.isSuperAdmin)
             ListTile(
               leading: const Icon(Icons.business),
               title: Text(context.l10n!.company),

@@ -6,6 +6,7 @@ enum DBKeys {
   appwriteProjectName("[appwriteProjectId]"),
   appwritePublicEndpoint("[appwriteProjectName]"),
   appwriteDatabaseId("[appwriteDatabaseId]"),
+  appwriteFunctionEmployeeId("[appwriteFunctionEmployeeId]"),
   appwriteTableUsersId("users"),
   appwriteTableCompaniesId("companies"),
   themeMode(ThemeMode.system),

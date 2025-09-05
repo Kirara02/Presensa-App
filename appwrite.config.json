@@ -1,0 +1,277 @@
+{
+  "projectId": "68b1bd5b000a794c3435",
+  "endpoint": "https://syd.cloud.appwrite.io/v1",
+  "projectName": "Presensa",
+  "settings": {
+    "services": {
+      "account": true,
+      "avatars": true,
+      "databases": true,
+      "locale": true,
+      "health": true,
+      "storage": true,
+      "teams": true,
+      "users": true,
+      "sites": true,
+      "functions": true,
+      "graphql": true,
+      "messaging": true
+    },
+    "auth": {
+      "methods": {
+        "jwt": false,
+        "phone": false,
+        "invites": false,
+        "anonymous": false,
+        "email-otp": false,
+        "magic-url": false,
+        "email-password": true
+      },
+      "security": {
+        "duration": 31536000,
+        "limit": 0,
+        "sessionsLimit": 10,
+        "passwordHistory": 0,
+        "passwordDictionary": false,
+        "personalDataCheck": false,
+        "sessionAlerts": false,
+        "mockNumbers": []
+      }
+    }
+  },
+  "functions": [
+    {
+      "$id": "68b94e040026ba9b8d70",
+      "execute": ["any"],
+      "name": "Employee-Management",
+      "enabled": true,
+      "logging": true,
+      "runtime": "dart-3.5",
+      "scopes": ["users.read"],
+      "events": [],
+      "schedule": "",
+      "timeout": 15,
+      "entrypoint": "lib/main.dart",
+      "commands": "dart pub get",
+      "specification": "s-0.5vcpu-512mb",
+      "path": "functions/Employee-Management"
+    }
+  ],
+  "databases": [
+    {
+      "$id": "68b2d0250003a89951f0",
+      "name": "presensa",
+      "enabled": true
+    }
+  ],
+  "collections": [
+    {
+      "$id": "companies",
+      "$permissions": [
+        "create(\"users\")",
+        "read(\"users\")",
+        "update(\"users\")",
+        "delete(\"users\")"
+      ],
+      "databaseId": "68b2d0250003a89951f0",
+      "name": "companies",
+      "enabled": true,
+      "documentSecurity": false,
+      "attributes": [
+        {
+          "key": "name",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 42,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "address",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 120,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "location",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 100,
+          "default": null,
+          "encrypt": false
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "$id": "users",
+      "$permissions": [
+        "create(\"users\")",
+        "read(\"users\")",
+        "update(\"users\")",
+        "delete(\"users\")"
+      ],
+      "databaseId": "68b2d0250003a89951f0",
+      "name": "users",
+      "enabled": true,
+      "documentSecurity": false,
+      "attributes": [
+        {
+          "key": "userId",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 20,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "phone",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 15,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "department",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 32,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "companyId",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 20,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "role",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 12,
+          "default": null,
+          "encrypt": false
+        }
+      ],
+      "indexes": []
+    }
+  ],
+  "tables": [
+    {
+      "$id": "companies",
+      "$permissions": [
+        "create(\"users\")",
+        "read(\"users\")",
+        "update(\"users\")",
+        "delete(\"users\")"
+      ],
+      "databaseId": "68b2d0250003a89951f0",
+      "name": "companies",
+      "enabled": true,
+      "columns": [
+        {
+          "key": "name",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 42,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "address",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 120,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "location",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 100,
+          "default": null,
+          "encrypt": false
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "$id": "users",
+      "$permissions": [
+        "create(\"users\")",
+        "read(\"users\")",
+        "update(\"users\")",
+        "delete(\"users\")"
+      ],
+      "databaseId": "68b2d0250003a89951f0",
+      "name": "users",
+      "enabled": true,
+      "columns": [
+        {
+          "key": "userId",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 20,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "phone",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 15,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "department",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 32,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "companyId",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 20,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "role",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 10,
+          "default": null,
+          "encrypt": false
+        }
+      ],
+      "indexes": []
+    }
+  ]
+}
