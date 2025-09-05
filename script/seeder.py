@@ -50,7 +50,7 @@ def main():
         user_id=ID.unique(),
         email="superadmin@mail.com",
         password="satudua12",
-        name="Owner Company"
+        name="Company Owner"
     )
     print(f"✅ Admin user created: {admin['$id']}")
     users.update_email_verification(
