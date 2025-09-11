@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:presensa_app/src/core/providers/user_data_provider.dart';
 import 'package:presensa_app/src/routes/router_config.dart';
 import 'package:presensa_app/src/utils/extensions/custom_extensions.dart';
+import 'package:presensa_app/src/widgets/app_logo.dart';
 
 class SplashScreen extends ConsumerWidget {
   const SplashScreen({super.key});
@@ -25,6 +26,9 @@ class SplashScreen extends ConsumerWidget {
         context.showSnackBar(next.error.toString());
       }
     });
-    return const Scaffold(body: Center(child: Text('Splash Screen')));
+
+    return const Scaffold(
+      body: Center(child: AppLogo(width: 120, height: 120)),
+    );
   }
 }

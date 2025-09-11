@@ -1,4 +1,4 @@
-import 'package:presensa_app/src/features/employees/data/models/company.dart';
+import 'package:presensa_app/src/features/more/data/models/company.dart';
 
 class Employee {
   final String userId;
@@ -48,6 +48,7 @@ class Employee {
       'phone': phone,
     };
   }
+  
 
   Employee copyWith({
     String? userId,

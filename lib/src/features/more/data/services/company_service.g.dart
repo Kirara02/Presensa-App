@@ -2,27 +2,29 @@
 
 // ignore_for_file: always_specify_types, public_member_api_docs
 
-part of 'auth_provider.dart';
+part of 'company_service.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authControllerHash() => r'3f4ec7232d670f9a3f16b09ea2c814226826bc87';
+String _$companyRepositoryHash() => r'cdf7a5ad5ece3a3dd3fa0088c183997ed181c1c9';
 
-/// See also [AuthController].
-@ProviderFor(AuthController)
-final authControllerProvider =
-    AutoDisposeAsyncNotifierProvider<AuthController, void>.internal(
-      AuthController.new,
-      name: r'authControllerProvider',
+/// See also [companyRepository].
+@ProviderFor(companyRepository)
+final companyRepositoryProvider =
+    AutoDisposeProvider<CompanyRepository>.internal(
+      companyRepository,
+      name: r'companyRepositoryProvider',
       debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
           ? null
-          : _$authControllerHash,
+          : _$companyRepositoryHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
 
-typedef _$AuthController = AutoDisposeAsyncNotifier<void>;
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef CompanyRepositoryRef = AutoDisposeProviderRef<CompanyRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

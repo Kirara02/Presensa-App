@@ -5,7 +5,7 @@ import 'package:presensa_app/src/core/logger/logger.dart';
 import 'package:presensa_app/src/core/providers/appwrite_provider.dart';
 import 'package:presensa_app/src/features/auth/data/models/user.dart';
 import 'package:presensa_app/src/features/auth/data/repository/auth_repository.dart';
-import 'package:presensa_app/src/features/employees/data/models/company.dart';
+import 'package:presensa_app/src/features/more/data/models/company.dart';
 import 'package:presensa_app/src/utils/extensions/custom_extensions.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
