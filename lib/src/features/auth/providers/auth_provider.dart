@@ -47,6 +47,11 @@ class AuthController extends _$AuthController {
     });
   }
 
+  Future<void> updatePassword(String oldPassword, String newPassword) async {
+    final authRepository = ref.read(authRepositoryProvider);
+    await authRepository.updatePassword(oldPassword, newPassword);
+  }
+
   /// ping server
   Future<bool> ping() async {
     final repo = ref.read(authRepositoryProvider);

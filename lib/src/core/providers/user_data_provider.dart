@@ -25,4 +25,5 @@ class UserData extends _$UserData {
       return authRepository.updateCurrentUser(updatedUser);
     });
   }
+
 }

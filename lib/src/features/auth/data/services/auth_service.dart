@@ -191,6 +191,23 @@ class AuthService implements AuthRepository {
   }
 
   @override
+  Future<void> updatePassword(String oldPassword, String newPassword) async {
+    try {
+      await _account.updatePassword(
+        password: newPassword,
+        oldPassword: oldPassword,
+      );
+    } on AppwriteException catch (e) {
+      if ((e.message ?? '').contains('Invalid `oldPassword`')) {
+        throw 'Password lama yang Anda masukkan salah.';
+      }
+      throw e.message ?? 'Gagal memperbarui password';
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  @override
   Future<bool> ping() async {
     try {
       final res = await _client.ping();
