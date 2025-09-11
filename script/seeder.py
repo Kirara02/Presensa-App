@@ -7,21 +7,29 @@ from dotenv import load_dotenv
 
 load_dotenv() 
 
+required_env = [
+    "APPWRITE_PROJECT_ID",
+    "APPWRITE_API_ENDPOINT",
+    "APPWRITE_API_KEY",
+    "APPWRITE_DATABASE_ID",
+    "APPWRITE_COMPANY_TABLE_ID",
+    "APPWRITE_USERS_TABLE_ID",
+    "APPWRITE_SHIFTS_TABLE_ID",
+]
+
+# Validate environment variables
+for var in required_env:
+    if not os.getenv(var):
+        raise ValueError(f"Environment variable {var} not set. Please create a .env file or export it.")
+
+# Assign vars
 PROJECT_ID = os.getenv("APPWRITE_PROJECT_ID")
-API_ENDPOINT = os.getenv("APPWRITE_API_ENDPOINT") 
+API_ENDPOINT = os.getenv("APPWRITE_API_ENDPOINT")
 API_KEY = os.getenv("APPWRITE_API_KEY")
 DATABASE_ID = os.getenv("APPWRITE_DATABASE_ID")
 COMPANY_TABLE_ID = os.getenv("APPWRITE_COMPANY_TABLE_ID")
 USERS_TABLE_ID = os.getenv("APPWRITE_USERS_TABLE_ID")
 SHIFTS_TABLE_ID = os.getenv("APPWRITE_SHIFTS_TABLE_ID")
-
-required_vars = [
-    PROJECT_ID, API_ENDPOINT, API_KEY, DATABASE_ID, 
-    COMPANY_TABLE_ID, USERS_TABLE_ID, SHIFTS_TABLE_ID
-]
-for var in required_vars:
-    if not globals()[var.replace("APPWRITE_", "")]:
-        raise ValueError(f"Environment variable {var} not set. Please create a .env file or export it.")
 
 # --- Setup Client ---
 client = Client()
@@ -46,25 +54,24 @@ def main():
     )
     print(f"✅ Company created: {company['$id']}")
 
-    print("Creating default shift...")
-    default_shift = databases.create_document(
+    default_shift = tables.create_row(
         database_id=DATABASE_ID,
-        collection_id=SHIFTS_TABLE_ID,
-        document_id=ID.unique(),
+        table_id=SHIFTS_TABLE_ID,
+        row_id=ID.unique(),
         data={
             "name": "WFO Normal",
-            "companyId": company['$id'], # Hubungkan ke perusahaan yang baru dibuat
+            "companyId": company['$id'], # Hubungkan ke perusahaan
             "startTime": "08:00",
             "endTime": "17:00",
             "lateToleranceMinutes": 15,
-            "workDays": [ # Array of strings
+            "workDays": [
                 "MONDAY",
                 "TUESDAY",
                 "WEDNESDAY",
                 "THURSDAY",
                 "FRIDAY"
             ],
-            "timezone": "Asia/Jakarta" # Samakan dengan timezone perusahaan
+            "timezone": "Asia/Jakarta"
         }
     )
     print(f"✅ Default shift created: {default_shift['$id']}")
