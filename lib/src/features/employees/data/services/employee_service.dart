@@ -28,6 +28,7 @@ class EmployeeService implements EmployeeRepository {
     required String companyId,
     String? department,
     String? phone,
+    required String shiftId,
   }) async {
     try {
       final result = await _functions.createExecution(
@@ -41,6 +42,7 @@ class EmployeeService implements EmployeeRepository {
           'companyId': companyId,
           'department': department,
           'phone': phone,
+          'shiftId': shiftId,
         }),
       );
 

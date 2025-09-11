@@ -13,6 +13,7 @@ abstract class EmployeeRepository {
     required String companyId,
     String? department,
     String? phone,
+    required String shiftId,
   });
 
   Future<Employee> updateEmployee(Employee employee);

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:presensa_app/src/core/providers/user_data_provider.dart';
+import 'package:presensa_app/src/features/employees/data/models/shift.dart';
 import 'package:presensa_app/src/features/employees/providers/employee_provider.dart';
+import 'package:presensa_app/src/features/employees/providers/shift_provider.dart';
 import 'package:presensa_app/src/utils/extensions/custom_extensions.dart';
 
 class AddEmployeeScreen extends ConsumerStatefulWidget {
@@ -20,6 +22,7 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
   final _departmentController = TextEditingController();
   final _phoneController = TextEditingController();
 
+  String? _selectedShiftId;
   String _selectedRole = 'employee';
   bool _isLoading = false;
 
@@ -63,6 +66,7 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
             phone: _phoneController.text.isNotEmpty
                 ? _phoneController.text.trim()
                 : null,
+            shiftId: _selectedShiftId!,
           );
 
       if (mounted) {
@@ -81,6 +85,8 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
   @override
   Widget build(BuildContext context) {
     final currentUser = ref.watch(userDataProvider).valueOrNull;
+    final shiftsAsync = ref.watch(shiftListProvider);
+    final List<Shift>? shifts = shiftsAsync.valueOrNull;
 
     return Scaffold(
       appBar: AppBar(
@@ -133,6 +139,34 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
                     ? 'Password minimal 8 karakter'
                     : null,
               ),
+              const SizedBox(height: 16),
+              if (shifts != null && shifts.isNotEmpty)
+                DropdownButtonFormField<String>(
+                  initialValue: _selectedShiftId,
+                  hint: const Text('Pilih Jadwal Kerja'),
+                  decoration: const InputDecoration(labelText: 'Jadwal Kerja'),
+                  items: shifts
+                      .map(
+                        (shift) => DropdownMenuItem(
+                          value: shift.id,
+                          child: Text(shift.name),
+                        ),
+                      )
+                      .toList(),
+                  onChanged: (value) =>
+                      setState(() => _selectedShiftId = value),
+                  validator: (value) => value == null ? 'Wajib dipilih' : null,
+                )
+              else
+                TextFormField(
+                  enabled: false,
+                  decoration: InputDecoration(
+                    labelText: 'Jadwal Kerja',
+                    hintText: shiftsAsync.isLoading
+                        ? 'Memuat jadwal...'
+                        : 'Jadwal tidak tersedia',
+                  ),
+                ),
               const SizedBox(height: 16),
               if (currentUser?.role == 'super-admin') ...[
                 DropdownButtonFormField<String>(

@@ -14,6 +14,7 @@ import 'package:presensa_app/src/features/more/presentation/change_password/chan
 import 'package:presensa_app/src/features/more/presentation/company/company_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/more/more_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/profile/profile_screen.dart';
+import 'package:presensa_app/src/features/more/presentation/shifts/shifts_screen.dart';
 import 'package:presensa_app/src/features/reports/presentation/reports/reports_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/settings/settings_screen.dart';
 import 'package:presensa_app/src/widgets/shell/shell_screen.dart';
@@ -50,6 +51,7 @@ abstract class Routes {
   static const profile = 'profile';
   static const changePassword = 'change-pasword';
   static const company = 'company';
+  static const shifts = 'shifts';
   static const about = 'about';
   static const settings = 'settings';
 }

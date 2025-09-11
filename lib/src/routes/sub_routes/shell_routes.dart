@@ -31,6 +31,7 @@ part of '../router_config.dart';
             TypedGoRoute<ProfileRoute>(path: Routes.profile),
             TypedGoRoute<ChangePasswordRoute>(path: Routes.changePassword),
             TypedGoRoute<CompanyRoute>(path: Routes.company),
+            TypedGoRoute<ShiftsRoute>(path: Routes.shifts),
             TypedGoRoute<AboutRoute>(path: Routes.about),
           ],
         ),

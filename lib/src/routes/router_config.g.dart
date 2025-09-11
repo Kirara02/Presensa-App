@@ -172,6 +172,11 @@ RouteBase get $shellRoute => StatefulShellRouteData.$route(
 
               factory: _$CompanyRoute._fromState,
             ),
+            GoRouteData.$route(
+              path: 'shifts',
+
+              factory: _$ShiftsRoute._fromState,
+            ),
             GoRouteData.$route(path: 'about', factory: _$AboutRoute._fromState),
           ],
         ),
@@ -398,6 +403,26 @@ mixin _$CompanyRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/more/company');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$ShiftsRoute on GoRouteData {
+  static ShiftsRoute _fromState(GoRouterState state) => const ShiftsRoute();
+
+  @override
+  String get location => GoRouteData.$location('/more/shifts');
 
   @override
   void go(BuildContext context) => context.go(location);

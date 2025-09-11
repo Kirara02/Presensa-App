@@ -1,3 +1,4 @@
+import 'package:presensa_app/src/features/employees/data/models/shift.dart';
 import 'package:presensa_app/src/features/more/data/models/company.dart';
 
 class Employee {
@@ -9,6 +10,7 @@ class Employee {
   final String? department;
   final String? phone;
   final Company? company;
+  final Shift? shift;
 
   Employee({
     required this.userId,
@@ -19,6 +21,7 @@ class Employee {
     this.department,
     this.phone,
     this.company,
+    this.shift,
   });
 
   factory Employee.fromJson(Map<String, dynamic> json) {
@@ -33,6 +36,9 @@ class Employee {
       company: json['company'] != null
           ? Company.fromJson(json['company'] as Map<String, dynamic>)
           : null,
+      shift: json['shift'] != null
+          ? Shift.fromJson(json['shift'] as Map<String, dynamic>)
+          : null,
     );
   }
 
@@ -46,9 +52,9 @@ class Employee {
       'role': role,
       'department': department,
       'phone': phone,
+      'shiftId': shift?.id,
     };
   }
-  
 
   Employee copyWith({
     String? userId,
@@ -58,6 +64,7 @@ class Employee {
     String? role,
     String? department,
     String? phone,
+    Shift? shift,
   }) {
     return Employee(
       userId: userId ?? this.userId,
@@ -67,6 +74,7 @@ class Employee {
       role: role ?? this.role,
       department: department ?? this.department,
       phone: phone ?? this.phone,
+      shift: shift ?? this.shift,
     );
   }
 }

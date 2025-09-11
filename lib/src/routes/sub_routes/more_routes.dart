@@ -46,6 +46,14 @@ class CompanyRoute extends GoRouteData with _$CompanyRoute {
       const CompanyScreen();
 }
 
+class ShiftsRoute extends GoRouteData with _$ShiftsRoute {
+  const ShiftsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ShiftsScreen();
+}
+
 class AboutRoute extends GoRouteData with _$AboutRoute {
   const AboutRoute();
 

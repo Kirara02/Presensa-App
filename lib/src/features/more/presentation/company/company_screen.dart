@@ -114,8 +114,6 @@ class _CompanyScreenState extends ConsumerState<CompanyScreen> {
       return const Center(child: Text('Data perusahaan tidak ditemukan.'));
     }
 
-    final company = companyAsync.value!;
-
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: Form(

@@ -33,6 +33,7 @@ Future<dynamic> main(final context) async {
     final databaseId = '68b2d0250003a89951f0'; // Contoh
     final usersCollectionId = 'users';
     final companiesCollectionId = 'companies';
+    final shiftsCollectionId = 'shifts';
 
     switch (action) {
       case 'list':
@@ -43,17 +44,23 @@ Future<dynamic> main(final context) async {
               databaseId: databaseId, collectionId: usersCollectionId),
           databases.listDocuments(
               databaseId: databaseId, collectionId: companiesCollectionId),
+          databases.listDocuments(
+              databaseId: databaseId, collectionId: shiftsCollectionId),
           users.list(),
         ]);
 
         final userDocuments = results[0] as models.DocumentList;
         final companyDocuments = results[1] as models.DocumentList;
-        final authUsers = results[2] as models.UserList;
+        final shiftDocuments = results[2] as models.DocumentList;
+        final authUsers = results[3] as models.UserList;
 
         // 2. Buat "peta" untuk pencarian cepat
         final authUsersMap = {for (var u in authUsers.users) u.$id: u};
         final companyMap = {
           for (var doc in companyDocuments.documents) doc.$id: doc.data
+        };
+        final shiftMap = {
+          for (var doc in shiftDocuments.documents) doc.$id: doc.data
         };
 
         // 3. Gabungkan semua data
@@ -65,6 +72,9 @@ Future<dynamic> main(final context) async {
           final String? companyId = docData['companyId'];
           final companyData = companyId != null ? companyMap[companyId] : null;
 
+          final String? shiftId = doc.data['shiftId'];
+          final shiftData = shiftId != null ? shiftMap[shiftId] : null;
+
           if (authUser != null) {
             combinedList.add({
               'userId': docData['userId'],
@@ -75,6 +85,7 @@ Future<dynamic> main(final context) async {
               'department': docData['department'],
               'phone': docData['phone'],
               'company': companyData,
+              'shift': shiftData,
             });
           }
         }
@@ -147,6 +158,7 @@ Future<dynamic> main(final context) async {
             documentId: employeeData['documentId'],
             data: {
               'role': employeeData['role'],
+              'shiftId': employeeData['shiftId'],
               'department': employeeData['department'],
               'phone': employeeData['phone'],
             });
@@ -176,6 +188,7 @@ Future<dynamic> main(final context) async {
               'userId': newUser.$id,
               'role': payload['role'],
               'department': payload['department'],
+              'shiftId': payload['shiftId'],
               'phone': payload['phone'],
               'companyId': payload['companyId'],
             });

@@ -20,6 +20,7 @@ class EmployeeList extends _$EmployeeList {
     required String companyId,
     String? department,
     String? phone,
+    required String shiftId,
   }) async {
     final repository = ref.read(employeeRepositoryProvider);
 
@@ -34,6 +35,7 @@ class EmployeeList extends _$EmployeeList {
         companyId: companyId,
         department: department,
         phone: phone,
+        shiftId: shiftId,
       );
       return repository.getEmployees();
     });

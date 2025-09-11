@@ -13,10 +13,11 @@ API_KEY = os.getenv("APPWRITE_API_KEY")
 DATABASE_ID = os.getenv("APPWRITE_DATABASE_ID")
 COMPANY_TABLE_ID = os.getenv("APPWRITE_COMPANY_TABLE_ID")
 USERS_TABLE_ID = os.getenv("APPWRITE_USERS_TABLE_ID")
+SHIFTS_TABLE_ID = os.getenv("APPWRITE_SHIFTS_TABLE_ID")
 
 required_vars = [
-    "APPWRITE_PROJECT_ID", "APPWRITE_API_ENDPOINT", "APPWRITE_API_KEY", 
-    "APPWRITE_DATABASE_ID", "APPWRITE_COMPANY_TABLE_ID", "APPWRITE_USERS_TABLE_ID"
+    PROJECT_ID, API_ENDPOINT, API_KEY, DATABASE_ID, 
+    COMPANY_TABLE_ID, USERS_TABLE_ID, SHIFTS_TABLE_ID
 ]
 for var in required_vars:
     if not globals()[var.replace("APPWRITE_", "")]:
@@ -45,6 +46,29 @@ def main():
     )
     print(f"✅ Company created: {company['$id']}")
 
+    print("Creating default shift...")
+    default_shift = databases.create_document(
+        database_id=DATABASE_ID,
+        collection_id=SHIFTS_TABLE_ID,
+        document_id=ID.unique(),
+        data={
+            "name": "WFO Normal",
+            "companyId": company['$id'], # Hubungkan ke perusahaan yang baru dibuat
+            "startTime": "08:00",
+            "endTime": "17:00",
+            "lateToleranceMinutes": 15,
+            "workDays": [ # Array of strings
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+            ],
+            "timezone": "Asia/Jakarta" # Samakan dengan timezone perusahaan
+        }
+    )
+    print(f"✅ Default shift created: {default_shift['$id']}")
+
     # 2. Buat Admin User di Authentication
     admin = users.create(
         user_id=ID.unique(),
@@ -68,8 +92,9 @@ def main():
             "userId": admin['$id'],
             "role": "super-admin",
             "companyId": company['$id'],
+            "shiftId": default_shift['$id'],
             "department": None,
-            "phone": None
+            "phone": None,
         }
     )
     print("✅ Admin linked to company!")

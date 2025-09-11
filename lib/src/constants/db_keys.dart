@@ -14,6 +14,7 @@ enum DBKeys {
   // appwriteFunctionEmployeeId("[appwriteFunctionEmployeeId]"),
   appwriteTableUsersId("users"),
   appwriteTableCompaniesId("companies"),
+  appwriteTableShiftsId("shifts"),
   themeMode(ThemeMode.system),
   isTrueBlack(false),
   flexScheme(FlexScheme.material),

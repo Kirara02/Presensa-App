@@ -50,6 +50,15 @@ class MoreScreen extends ConsumerWidget {
                 CompanyRoute().push(context);
               },
             ),
+
+          if (userState != null && !userState.isEmployee)
+            ListTile(
+              leading: const Icon(Icons.punch_clock),
+              title: Text("Shifts"),
+              onTap: () {
+                ShiftsRoute().push(context);
+              },
+            ),
           ListTile(
             leading: const Icon(Icons.lock),
             title: Text(context.l10n!.change_password),
