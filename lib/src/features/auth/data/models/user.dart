@@ -19,6 +19,26 @@ class User {
     this.company,
   });
 
+  User copyWith({
+    String? id,
+    String? name,
+    String? email,
+    String? role,
+    String? department,
+    String? phone,
+    Company? company,
+  }) {
+    return User(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      role: role ?? this.role,
+      department: department ?? this.department,
+      phone: phone ?? this.phone,
+      company: company ?? this.company,
+    );
+  }
+
   bool get isSuperAdmin => role.toLowerCase() == 'super-admin';
 
   bool get isAdmin => role.toLowerCase() == 'admin';

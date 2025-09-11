@@ -8,7 +8,7 @@ part of 'employee_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$employeeListHash() => r'3cfc05b5e8e9236c964c79c874fcbf902a077425';
+String _$employeeListHash() => r'26d681d73b0ddac18bf0b0a105c52f59e807d63e';
 
 /// See also [EmployeeList].
 @ProviderFor(EmployeeList)

@@ -10,6 +10,7 @@ import 'package:presensa_app/src/features/employees/presentation/add_employee/ad
 import 'package:presensa_app/src/features/employees/presentation/employee_detail/employee_detail_screen.dart';
 import 'package:presensa_app/src/features/employees/presentation/employees/employees_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/about/about_screen.dart';
+import 'package:presensa_app/src/features/more/presentation/change_password/change_password_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/company/company_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/more/more_screen.dart';
 import 'package:presensa_app/src/features/more/presentation/profile/profile_screen.dart';
@@ -47,6 +48,7 @@ abstract class Routes {
   static const more = '/more';
 
   static const profile = 'profile';
+  static const changePassword = 'change-pasword';
   static const company = 'company';
   static const about = 'about';
   static const settings = 'settings';

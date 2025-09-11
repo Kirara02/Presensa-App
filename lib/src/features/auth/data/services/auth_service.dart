@@ -147,6 +147,50 @@ class AuthService implements AuthRepository {
   }
 
   @override
+  Future<User> updateCurrentUser(User user) async {
+    try {
+      final currentAuthUser = await _account.get();
+
+      if (currentAuthUser.name != user.name) {
+        await _account.updateName(name: user.name);
+      }
+      
+      final userDocs = await _tablesDB.listRows(
+        databaseId: databaseId,
+        tableId: usersTableId,
+        queries: [Query.equal('userId', user.id)],
+      );
+      
+      if (userDocs.rows.isEmpty) {
+        throw Exception('Dokumen untuk pengguna saat ini tidak ditemukan di database.');
+      }
+      
+      final documentId = userDocs.rows.first.data['\$id'];
+      
+      await _tablesDB.updateRow(
+        databaseId: databaseId,
+        tableId: usersTableId,
+        rowId: documentId,
+        data: {
+          'department': user.department,
+          'phone': user.phone,
+        },
+      );
+      
+      final updatedUser = await getCurrentUser();
+      if (updatedUser == null) {
+        throw Exception("Gagal mengambil data pengguna setelah update.");
+      }
+      return updatedUser;
+      
+    } on AppwriteException catch (e) {
+      throw e.message ?? 'Gagal memperbarui profil';
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  @override
   Future<bool> ping() async {
     try {
       final res = await _client.ping();

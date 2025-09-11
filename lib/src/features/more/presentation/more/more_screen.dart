@@ -50,12 +50,11 @@ class MoreScreen extends ConsumerWidget {
                 CompanyRoute().push(context);
               },
             ),
-
           ListTile(
             leading: const Icon(Icons.lock),
             title: Text(context.l10n!.change_password),
             onTap: () {
-              // TODO: navigate to change password screen
+              ChangePasswordRoute().push(context);
             },
           ),
           ListTile(

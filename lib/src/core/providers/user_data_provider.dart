@@ -15,4 +15,14 @@ class UserData extends _$UserData {
   void setUser(User user) {
     state = AsyncData(user);
   }
+
+  Future<void> updateProfile(User updatedUser) async {
+    final authRepository = ref.read(authRepositoryProvider);
+    
+    state = const AsyncLoading();
+    
+    state = await AsyncValue.guard(() async {
+      return authRepository.updateCurrentUser(updatedUser);
+    });
+  }
 }

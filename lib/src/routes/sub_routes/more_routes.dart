@@ -28,6 +28,16 @@ class ProfileRoute extends GoRouteData with _$ProfileRoute {
 }
 
 
+
+class ChangePasswordRoute extends GoRouteData with _$ChangePasswordRoute {
+  const ChangePasswordRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ChangePasswordScreen();
+}
+
+
 class CompanyRoute extends GoRouteData with _$CompanyRoute {
   const CompanyRoute();
 

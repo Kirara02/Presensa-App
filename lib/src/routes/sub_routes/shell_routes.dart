@@ -29,6 +29,7 @@ part of '../router_config.dart';
           routes: [
             TypedGoRoute<SettingsRoute>(path: Routes.settings),
             TypedGoRoute<ProfileRoute>(path: Routes.profile),
+            TypedGoRoute<ChangePasswordRoute>(path: Routes.changePassword),
             TypedGoRoute<CompanyRoute>(path: Routes.company),
             TypedGoRoute<AboutRoute>(path: Routes.about),
           ],

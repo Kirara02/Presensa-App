@@ -163,6 +163,11 @@ RouteBase get $shellRoute => StatefulShellRouteData.$route(
               factory: _$ProfileRoute._fromState,
             ),
             GoRouteData.$route(
+              path: 'change-pasword',
+
+              factory: _$ChangePasswordRoute._fromState,
+            ),
+            GoRouteData.$route(
               path: 'company',
 
               factory: _$CompanyRoute._fromState,
@@ -352,6 +357,27 @@ mixin _$ProfileRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/more/profile');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$ChangePasswordRoute on GoRouteData {
+  static ChangePasswordRoute _fromState(GoRouterState state) =>
+      const ChangePasswordRoute();
+
+  @override
+  String get location => GoRouteData.$location('/more/change-pasword');
 
   @override
   void go(BuildContext context) => context.go(location);
