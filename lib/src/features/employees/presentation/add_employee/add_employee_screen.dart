@@ -39,7 +39,7 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
   Future<void> _saveEmployee() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
 
-    final currentUser = ref.read(userDataProvider).valueOrNull;
+    final currentUser = ref.read(userDataProvider).value;
 
     if (currentUser?.company?.id == null) {
       context.showSnackBar(
@@ -84,9 +84,9 @@ class _AddEmployeeScreenState extends ConsumerState<AddEmployeeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final currentUser = ref.watch(userDataProvider).valueOrNull;
+    final currentUser = ref.watch(userDataProvider).value;
     final shiftsAsync = ref.watch(shiftListProvider);
-    final List<Shift>? shifts = shiftsAsync.valueOrNull;
+    final List<Shift>? shifts = shiftsAsync.value;
 
     return Scaffold(
       appBar: AppBar(

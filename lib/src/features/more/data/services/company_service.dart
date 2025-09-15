@@ -1,5 +1,4 @@
 import 'package:appwrite/appwrite.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:presensa_app/src/constants/db_keys.dart';
 import 'package:presensa_app/src/core/providers/appwrite_provider.dart';
 import 'package:presensa_app/src/features/more/data/models/company.dart';

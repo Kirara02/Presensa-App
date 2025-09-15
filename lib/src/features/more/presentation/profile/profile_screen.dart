@@ -68,7 +68,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     final userAsync = ref.watch(userDataProvider);
 
     // Dapatkan data user terakhir yang valid. Akan null jika belum pernah ada data.
-    final User? user = userAsync.valueOrNull;
+    final User? user = userAsync.value;
     // Tentukan apakah ada proses update/loading yang sedang berjalan
     final isUpdating = userAsync.isLoading;
 

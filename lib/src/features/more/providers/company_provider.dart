@@ -11,7 +11,7 @@ class CompanyData extends _$CompanyData {
   Future<Company?> build() async {
     final companyRepository = ref.watch(companyRepositoryProvider);
     // Data perusahaan bergantung pada user yang login
-    final user = ref.watch(userDataProvider).valueOrNull;
+    final user = ref.watch(userDataProvider).value;
 
     // Jika tidak ada user atau companyId, tidak ada data perusahaan untuk diambil
     if (user?.company?.id == null) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:presensa_app/src/features/attendance/presentation/attendance/attendance_screen.dart';
 import 'package:presensa_app/src/features/auth/presentation/login/login_screen.dart';

@@ -8,21 +8,50 @@ part of 'company_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(CompanyData)
+const companyDataProvider = CompanyDataProvider._();
+
+final class CompanyDataProvider
+    extends $AsyncNotifierProvider<CompanyData, Company?> {
+  const CompanyDataProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'companyDataProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$companyDataHash();
+
+  @$internal
+  @override
+  CompanyData create() => CompanyData();
+}
+
 String _$companyDataHash() => r'e8542f0d9d5298e57958f977094b2019940cc469';
 
-/// See also [CompanyData].
-@ProviderFor(CompanyData)
-final companyDataProvider =
-    AutoDisposeAsyncNotifierProvider<CompanyData, Company?>.internal(
-      CompanyData.new,
-      name: r'companyDataProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$companyDataHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
-
-typedef _$CompanyData = AutoDisposeAsyncNotifier<Company?>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+abstract class _$CompanyData extends $AsyncNotifier<Company?> {
+  FutureOr<Company?> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<Company?>, Company?>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<Company?>, Company?>,
+              AsyncValue<Company?>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}

@@ -8,21 +8,50 @@ part of 'employee_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(EmployeeList)
+const employeeListProvider = EmployeeListProvider._();
+
+final class EmployeeListProvider
+    extends $AsyncNotifierProvider<EmployeeList, List<Employee>> {
+  const EmployeeListProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'employeeListProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$employeeListHash();
+
+  @$internal
+  @override
+  EmployeeList create() => EmployeeList();
+}
+
 String _$employeeListHash() => r'03d7e7061130a456747089158ff559bc012f990e';
 
-/// See also [EmployeeList].
-@ProviderFor(EmployeeList)
-final employeeListProvider =
-    AutoDisposeAsyncNotifierProvider<EmployeeList, List<Employee>>.internal(
-      EmployeeList.new,
-      name: r'employeeListProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$employeeListHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
-
-typedef _$EmployeeList = AutoDisposeAsyncNotifier<List<Employee>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+abstract class _$EmployeeList extends $AsyncNotifier<List<Employee>> {
+  FutureOr<List<Employee>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<List<Employee>>, List<Employee>>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<List<Employee>>, List<Employee>>,
+              AsyncValue<List<Employee>>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}

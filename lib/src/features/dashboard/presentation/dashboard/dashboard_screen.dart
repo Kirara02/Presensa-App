@@ -11,7 +11,7 @@ class DashboardScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final dashboardAsync = ref.watch(dashboardDataProvider);
-    final user = ref.watch(userDataProvider).valueOrNull;
+    final user = ref.watch(userDataProvider).value;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Dashboard')),

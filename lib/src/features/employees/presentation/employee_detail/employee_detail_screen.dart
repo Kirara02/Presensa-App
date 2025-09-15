@@ -82,7 +82,7 @@ class _EmployeeDetailScreenState extends ConsumerState<EmployeeDetailScreen> {
   Future<void> _updateEmployee(Employee currentEmployee) async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
     setState(() => _isUpdating = true);
-    final availableShifts = ref.read(shiftListProvider).valueOrNull ?? [];
+    final availableShifts = ref.read(shiftListProvider).value ?? [];
     final newShift = availableShifts.firstWhereOrNull(
       (s) => s.id == _selectedShiftId,
     );
@@ -122,9 +122,9 @@ class _EmployeeDetailScreenState extends ConsumerState<EmployeeDetailScreen> {
     });
 
     final employeeListAsync = ref.watch(employeeListProvider);
-    final currentUser = ref.watch(userDataProvider).valueOrNull;
+    final currentUser = ref.watch(userDataProvider).value;
     final shiftsAsync = ref.watch(shiftListProvider);
-    final shifts = shiftsAsync.valueOrNull;
+    final shifts = shiftsAsync.value;
     final employee = employeeListAsync.value?.firstWhereOrNull(
       (e) => e.documentId == widget.employeeId,
     );

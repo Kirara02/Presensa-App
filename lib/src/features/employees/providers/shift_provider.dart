@@ -9,13 +9,13 @@ part 'shift_provider.g.dart';
 class ShiftList extends _$ShiftList {
   @override
   Future<List<Shift>> build() async {
-    final companyId = ref.watch(userDataProvider).valueOrNull?.company?.id;
+    final companyId = ref.watch(userDataProvider).value?.company?.id;
     if (companyId == null) return [];
     return ref.watch(shiftRepositoryProvider).getShiftsByCompany(companyId);
   }
 
   Future<void> addShift(Shift newShift) async {
-    final companyId = ref.read(userDataProvider).valueOrNull?.company?.id;
+    final companyId = ref.read(userDataProvider).value?.company?.id;
     if (companyId == null) throw Exception('Company ID tidak ditemukan');
 
     final repository = ref.read(shiftRepositoryProvider);

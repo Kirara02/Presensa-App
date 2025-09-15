@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod/legacy.dart';
 import 'package:presensa_app/src/core/providers/user_data_provider.dart';
 import 'package:presensa_app/src/features/auth/providers/auth_provider.dart';
 import 'package:presensa_app/src/routes/router_config.dart';
@@ -12,7 +13,7 @@ class MoreScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userState = ref.watch(userDataProvider).valueOrNull;
+    final userState = ref.watch(userDataProvider).value;
     final isLoggingOut = ref.watch(_isLoggingOutProvider);
 
     Future<void> performLogout() async {

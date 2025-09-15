@@ -8,21 +8,50 @@ part of 'shift_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$shiftListHash() => r'b26984780ae2a3bf8b3653a3475996413cfd07f7';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [ShiftList].
 @ProviderFor(ShiftList)
-final shiftListProvider =
-    AutoDisposeAsyncNotifierProvider<ShiftList, List<Shift>>.internal(
-      ShiftList.new,
-      name: r'shiftListProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$shiftListHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
+const shiftListProvider = ShiftListProvider._();
 
-typedef _$ShiftList = AutoDisposeAsyncNotifier<List<Shift>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class ShiftListProvider
+    extends $AsyncNotifierProvider<ShiftList, List<Shift>> {
+  const ShiftListProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'shiftListProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$shiftListHash();
+
+  @$internal
+  @override
+  ShiftList create() => ShiftList();
+}
+
+String _$shiftListHash() => r'63b1609a1454b17a5d1676d25ad7edf013f70c95';
+
+abstract class _$ShiftList extends $AsyncNotifier<List<Shift>> {
+  FutureOr<List<Shift>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<List<Shift>>, List<Shift>>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<List<Shift>>, List<Shift>>,
+              AsyncValue<List<Shift>>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}

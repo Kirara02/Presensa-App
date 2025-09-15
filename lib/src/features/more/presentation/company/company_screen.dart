@@ -64,7 +64,7 @@ class _CompanyScreenState extends ConsumerState<CompanyScreen> {
 
     final companyAsync = ref.watch(companyDataProvider);
     final isUpdating = companyAsync.isLoading && companyAsync.hasValue;
-    final Company? company = companyAsync.valueOrNull;
+    final Company? company = companyAsync.value;
 
     if (company != null && !_isEditing && _nameController.text.isEmpty) {
       _nameController.text = company.name;

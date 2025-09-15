@@ -44,7 +44,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-functions/*/build/
-functions/*/.dart_tool/
-functions/*/.packages
-functions/*/pubspec.lock
+# Ignore generated files
+*.g.dart
+*.freezed.dart
+lib/src/l10n/generated

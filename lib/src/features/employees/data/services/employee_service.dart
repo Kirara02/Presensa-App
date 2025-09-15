@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:appwrite/appwrite.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:presensa_app/src/constants/db_keys.dart';
 import 'package:presensa_app/src/core/logger/logger.dart';
 import 'package:presensa_app/src/core/providers/appwrite_provider.dart';

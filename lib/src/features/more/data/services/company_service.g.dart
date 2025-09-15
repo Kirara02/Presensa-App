@@ -8,23 +8,52 @@ part of 'company_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$companyRepositoryHash() => r'cdf7a5ad5ece3a3dd3fa0088c183997ed181c1c9';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [companyRepository].
 @ProviderFor(companyRepository)
-final companyRepositoryProvider =
-    AutoDisposeProvider<CompanyRepository>.internal(
-      companyRepository,
-      name: r'companyRepositoryProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$companyRepositoryHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
+const companyRepositoryProvider = CompanyRepositoryProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef CompanyRepositoryRef = AutoDisposeProviderRef<CompanyRepository>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class CompanyRepositoryProvider
+    extends
+        $FunctionalProvider<
+          CompanyRepository,
+          CompanyRepository,
+          CompanyRepository
+        >
+    with $Provider<CompanyRepository> {
+  const CompanyRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'companyRepositoryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$companyRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<CompanyRepository> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  CompanyRepository create(Ref ref) {
+    return companyRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(CompanyRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<CompanyRepository>(value),
+    );
+  }
+}
+
+String _$companyRepositoryHash() => r'cdf7a5ad5ece3a3dd3fa0088c183997ed181c1c9';

@@ -8,21 +8,50 @@ part of 'dashboard_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(DashboardData)
+const dashboardDataProvider = DashboardDataProvider._();
+
+final class DashboardDataProvider
+    extends $AsyncNotifierProvider<DashboardData, DashboardModel> {
+  const DashboardDataProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'dashboardDataProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$dashboardDataHash();
+
+  @$internal
+  @override
+  DashboardData create() => DashboardData();
+}
+
 String _$dashboardDataHash() => r'58cfcf644cec07d8f1cca3569ab82a4212923c18';
 
-/// See also [DashboardData].
-@ProviderFor(DashboardData)
-final dashboardDataProvider =
-    AutoDisposeAsyncNotifierProvider<DashboardData, DashboardModel>.internal(
-      DashboardData.new,
-      name: r'dashboardDataProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$dashboardDataHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
-
-typedef _$DashboardData = AutoDisposeAsyncNotifier<DashboardModel>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+abstract class _$DashboardData extends $AsyncNotifier<DashboardModel> {
+  FutureOr<DashboardModel> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<DashboardModel>, DashboardModel>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<DashboardModel>, DashboardModel>,
+              AsyncValue<DashboardModel>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
