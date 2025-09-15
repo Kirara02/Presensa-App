@@ -5,7 +5,7 @@ class DashboardBranch extends StatefulShellBranchData {
   const DashboardBranch();
 }
 
-class DashboardRoute extends GoRouteData with _$DashboardRoute {
+class DashboardRoute extends GoRouteData with $DashboardRoute {
   const DashboardRoute();
   @override
   Widget build(context, state) => DashboardScreen();

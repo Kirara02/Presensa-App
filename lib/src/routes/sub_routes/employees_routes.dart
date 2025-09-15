@@ -5,13 +5,13 @@ class EmployeesBranch extends StatefulShellBranchData {
   const EmployeesBranch();
 }
 
-class EmployeesRoute extends GoRouteData with _$EmployeesRoute {
+class EmployeesRoute extends GoRouteData with $EmployeesRoute {
   const EmployeesRoute();
   @override
   Widget build(context, state) => EmployeesScreen();
 }
 
-class EmployeeDetailRoute extends GoRouteData with _$EmployeeDetailRoute {
+class EmployeeDetailRoute extends GoRouteData with $EmployeeDetailRoute {
   final String id; // ID dari dokumen karyawan
   const EmployeeDetailRoute(this.id);
 
@@ -19,7 +19,7 @@ class EmployeeDetailRoute extends GoRouteData with _$EmployeeDetailRoute {
   Widget build(context, state) => EmployeeDetailScreen(employeeId: id);
 }
 
-class AddEmployeeRoute extends GoRouteData with _$AddEmployeeRoute {
+class AddEmployeeRoute extends GoRouteData with $AddEmployeeRoute {
   const AddEmployeeRoute();
 
   @override

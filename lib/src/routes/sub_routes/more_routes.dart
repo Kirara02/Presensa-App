@@ -5,13 +5,13 @@ class MoreBranch extends StatefulShellBranchData {
   const MoreBranch();
 }
 
-class MoreRoute extends GoRouteData with _$MoreRoute {
+class MoreRoute extends GoRouteData with $MoreRoute {
   const MoreRoute();
   @override
   Widget build(context, state) => MoreScreen();
 }
 
-class SettingsRoute extends GoRouteData with _$SettingsRoute {
+class SettingsRoute extends GoRouteData with $SettingsRoute {
   const SettingsRoute();
 
   @override
@@ -19,7 +19,7 @@ class SettingsRoute extends GoRouteData with _$SettingsRoute {
       const SettingsScreen();
 }
 
-class ProfileRoute extends GoRouteData with _$ProfileRoute {
+class ProfileRoute extends GoRouteData with $ProfileRoute {
   const ProfileRoute();
 
   @override
@@ -27,9 +27,7 @@ class ProfileRoute extends GoRouteData with _$ProfileRoute {
       const ProfileScreen();
 }
 
-
-
-class ChangePasswordRoute extends GoRouteData with _$ChangePasswordRoute {
+class ChangePasswordRoute extends GoRouteData with $ChangePasswordRoute {
   const ChangePasswordRoute();
 
   @override
@@ -37,8 +35,7 @@ class ChangePasswordRoute extends GoRouteData with _$ChangePasswordRoute {
       const ChangePasswordScreen();
 }
 
-
-class CompanyRoute extends GoRouteData with _$CompanyRoute {
+class CompanyRoute extends GoRouteData with $CompanyRoute {
   const CompanyRoute();
 
   @override
@@ -46,7 +43,7 @@ class CompanyRoute extends GoRouteData with _$CompanyRoute {
       const CompanyScreen();
 }
 
-class ShiftsRoute extends GoRouteData with _$ShiftsRoute {
+class ShiftsRoute extends GoRouteData with $ShiftsRoute {
   const ShiftsRoute();
 
   @override
@@ -54,7 +51,7 @@ class ShiftsRoute extends GoRouteData with _$ShiftsRoute {
       const ShiftsScreen();
 }
 
-class AboutRoute extends GoRouteData with _$AboutRoute {
+class AboutRoute extends GoRouteData with $AboutRoute {
   const AboutRoute();
 
   @override

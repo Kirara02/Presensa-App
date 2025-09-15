@@ -5,7 +5,7 @@ class ReportsBranch extends StatefulShellBranchData {
   const ReportsBranch();
 }
 
-class ReportsRoute extends GoRouteData with _$ReportsRoute {
+class ReportsRoute extends GoRouteData with $ReportsRoute {
   const ReportsRoute();
   @override
   Widget build(context, state) => ReportsScreen();

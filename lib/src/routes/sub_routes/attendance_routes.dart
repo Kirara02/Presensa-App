@@ -5,7 +5,7 @@ class AttendanceBranch extends StatefulShellBranchData {
   const AttendanceBranch();
 }
 
-class AttendanceRoute extends GoRouteData with _$AttendanceRoute {
+class AttendanceRoute extends GoRouteData with $AttendanceRoute {
   const AttendanceRoute();
   @override
   Widget build(context, state) => AttendanceScreen();

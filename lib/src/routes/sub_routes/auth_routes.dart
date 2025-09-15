@@ -1,7 +1,7 @@
 part of '../router_config.dart';
 
 @TypedGoRoute<SplashRoute>(path: Routes.splash)
-class SplashRoute extends GoRouteData with _$SplashRoute {
+class SplashRoute extends GoRouteData with $SplashRoute {
   const SplashRoute();
 
   @override
@@ -10,7 +10,7 @@ class SplashRoute extends GoRouteData with _$SplashRoute {
 }
 
 @TypedGoRoute<LoginRoute>(path: Routes.login)
-class LoginRoute extends GoRouteData with _$LoginRoute {
+class LoginRoute extends GoRouteData with $LoginRoute {
   const LoginRoute();
 
   @override
@@ -19,7 +19,7 @@ class LoginRoute extends GoRouteData with _$LoginRoute {
 }
 
 @TypedGoRoute<RegisterRoute>(path: Routes.register)
-class RegisterRoute extends GoRouteData with _$RegisterRoute {
+class RegisterRoute extends GoRouteData with $RegisterRoute {
   const RegisterRoute();
 
   @override
